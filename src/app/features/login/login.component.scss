@@ -1,0 +1,28 @@
+.login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .title {
+    font-size: x-large;
+  }
+}
+
+form {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 280px;
+}
+
+::ng-deep {
+  .mat-mdc-tab-body-content {
+    overflow: hidden !important;
+  }
+}
+
+mat-card {
+  transition: max-height 0.3s ease-in-out;
+}

@@ -1,0 +1,90 @@
+<section class="login-container">
+  <mat-card appearance="outlined">
+    <mat-card-content [@expandCollapse]="isExpanded ? 'expanded' : 'collapsed'">
+      <mat-tab-group
+        animationDuration="700ms"
+        (selectedIndexChange)="tabChange()"
+        mat-stretch-tabs="false"
+        mat-align-tabs="center"
+      >
+        <mat-tab label="Sign In">
+          <form class="form-login" [formGroup]="form" (ngSubmit)="login()">
+            <mat-form-field class="">
+              <mat-label class="label">Email</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="example@email.com"
+                name="email"
+                formControlName="email"
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label class="label">Password</mat-label>
+              <input
+                matInput
+                [type]="hide ? 'password' : 'text'"
+                name="password"
+                formControlName="password"
+                required
+              />
+              <button
+                mat-icon-button
+                matSuffix
+                (click)="clickEvent($event)"
+                [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide"
+              >
+                <mat-icon>{{
+                  hide ? "visibility_off" : "visibility"
+                }}</mat-icon>
+              </button>
+            </mat-form-field>
+
+            <button type="submit" mat-button>Sign In</button>
+          </form>
+        </mat-tab>
+        <mat-tab label="Sign Up">
+          <form class="form-login" [formGroup]="form" (ngSubmit)="register()">
+            <mat-form-field class="">
+              <mat-label class="label">Email</mat-label>
+              <input
+                type="email"
+                matInput
+                placeholder="example@email.com"
+                name="email"
+                formControlName="email"
+                required
+              />
+            </mat-form-field>
+
+            <mat-form-field>
+              <mat-label class="label">Password</mat-label>
+              <input
+                matInput
+                type="password"
+                name="password"
+                formControlName="password"
+                required
+              />
+            </mat-form-field>
+            <mat-form-field>
+              <mat-label class="label">Confirm password</mat-label>
+              <input
+                matInput
+                type="password"
+                name="confirmPassword"
+                formControlName="confirmPassword"
+                required
+              />
+            </mat-form-field>
+
+            <button type="submit" mat-button>Sign Up</button>
+          </form>
+        </mat-tab>
+      </mat-tab-group>
+    </mat-card-content>
+  </mat-card>
+</section>
